@@ -12,9 +12,10 @@ jobs:
           name: testing
           command: docker-compose -f docker-compose-test.yml run docker-cicd
   deploy:
-    docker:
-      - image: circleci/node:9.2.0
-      - image: docker:17.05.0-ce-git
+    machine: ture
+#    docker:
+#      - image: circleci/node:9.2.0
+#      - image: docker:17.05.0-ce-git
     steps:
       - checkout
       - setup_remote_docker
@@ -25,6 +26,16 @@ jobs:
             sudo pip install -y python python-dev python-pip
             python-virtualenv &&
             sudo pip install --update --user awsebcli
+      - run:
+          name: setup eb credential
+          command: >
+            mkdir -p ~/.aws &&
+            echo [default] >> ~/.aws/credentials &&
+            echo aws_access_key_id = $AWS_ACCESS_KEY_ID >> ~/.aws/credentials &&
+            echo aws_secret_access_key = $AWS_SECRET_ACCESS_KEY >>  ~/.aws/credentials &&
+
+
+
       - deploy:
           nanme: deploy to aws eb
           command: sudo eb deploy env-dev
