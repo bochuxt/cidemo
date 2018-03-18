@@ -7,6 +7,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - run: docker info
       - run:
           name: testing
           command: docker-compose-f docker-compose-test.yml run docker-cicd
