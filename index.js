@@ -4,7 +4,7 @@ var app=express()
 
 
 app.get('/', (req, res) => {
-    res.send('hello world')
+    res.send('hello world, from aws eb deploy')
 })
 
 app.listen(8080, () => {

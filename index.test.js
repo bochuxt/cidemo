@@ -10,7 +10,7 @@ test('hello world', () => {
     (res) => {
         expect(res.statusCode).toBe(200);
         expect(res.body).toEqual(expect.any(Object));
-        expect(res.body.result).toBe('hello world');
+        expect(res.body.result).toBe('hello world, from aws eb deploy');
 
         done();
 
