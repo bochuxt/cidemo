@@ -17,7 +17,7 @@ jobs:
       - image: docker:17.05.0-ce-git
     steps:
       - checkout
-      - set_remote_docker
+      - setup_remote_docker
       - run:
         name: install EB command line
         command: >
