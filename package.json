@@ -1,0 +1,30 @@
+{
+  "name": "cidemo",
+  "version": "1.0.0",
+  "description": "ci demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --forceExit",
+    "start":"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bochuxt/cidemo.git"
+  },
+  "keywords": [
+    "ci"
+  ],
+  "author": "george",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bochuxt/cidemo/issues"
+  },
+  "homepage": "https://github.com/bochuxt/cidemo#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "jest": "^22.4.2",
+    "supertest": "^3.0.0"
+  }
+}
