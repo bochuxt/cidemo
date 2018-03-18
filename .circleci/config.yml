@@ -11,3 +11,28 @@ jobs:
       - run:
           name: testing
           command: docker-compose -f docker-compose-test.yml run docker-cicd
+  deploy:
+    docker:
+      - image: circleci/node:9.2.0
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout
+      - set_remote_docker
+      - run:
+        name: install EB command line
+        command: >
+          sudo apt-get update &&
+          sudo pip install -y python python-dev python-pip
+          python-virtualenv &&
+          sudo pip install --update --user awsebcli
+      - deploy:
+        nanme: deploy to aws eb
+        command sudo eb deploy env-dev
+workflows:
+  version: 2
+  docker-cicd:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
