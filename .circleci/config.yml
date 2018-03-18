@@ -10,4 +10,4 @@ jobs:
       - run: docker info
       - run:
           name: testing
-          command: docker-compose-f docker-compose-test.yml run docker-cicd
+          command: docker-compose -f docker-compose-test.yml run docker-cicd
