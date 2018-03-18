@@ -27,7 +27,7 @@ jobs:
           sudo pip install --update --user awsebcli
       - deploy:
         nanme: deploy to aws eb
-        command sudo eb deploy env-dev
+        command: sudo eb deploy env-dev
 workflows:
   version: 2
   docker-cicd:
