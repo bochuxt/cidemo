@@ -19,15 +19,15 @@ jobs:
       - checkout
       - setup_remote_docker
       - run:
-        name: install EB command line
-        command: >
-          sudo apt-get update &&
-          sudo pip install -y python python-dev python-pip
-          python-virtualenv &&
-          sudo pip install --update --user awsebcli
+          name: install EB command line
+          command: >
+            sudo apt-get update &&
+            sudo pip install -y python python-dev python-pip
+            python-virtualenv &&
+            sudo pip install --update --user awsebcli
       - deploy:
-        nanme: deploy to aws eb
-        command: sudo eb deploy env-dev
+          nanme: deploy to aws eb
+          command: sudo eb deploy env-dev
 workflows:
   version: 2
   docker-cicd:
