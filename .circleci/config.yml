@@ -2,9 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: clojure:alpine
+      - image: circleci/node:9.2.0
+      - image: docker:17.05.0-ce-git
     steps:
       - checkout
-      - run: echo " hello workld form circleci"
-
-
+      - setup_remote_docker
+      - run:
+        name: testing
+        command: docker-compose-f docker-compose-test.yml run docker-cicd
