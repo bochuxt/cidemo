@@ -24,6 +24,7 @@ jobs:
           name: install EB command line
           command: >
             sudo apt-get update &&
+            sudo apt-get install pip &&
             sudo pip install -y python python-dev python-pip
             python-virtualenv &&
             sudo pip install --update --user awsebcli
